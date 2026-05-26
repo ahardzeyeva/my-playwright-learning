@@ -39,7 +39,7 @@ test.describe('SauceDemo', () => {
   );
   });
 
-    test('Task - 5: should show validation error when login form is empty', async ({ page }) => {
+    test('Task - 5: should show validation error when login form is empty updated', async ({ page }) => {
       await page.getByRole('button', { name: 'Login' }).click();
 
       await expect(
