@@ -27,7 +27,19 @@ test.describe('SauceDemo', () => {
       ).toBeVisible();
     });
 
-    test('Task - 5: should show validation error when login form is empty test', async ({ page }) => {
+    ///Week 5 - Scenario 1 
+    test('Task-3: should show error for locked out user', async ({ page }) => {
+  await page.getByPlaceholder('Username').fill('locked_out_user');
+  await page.getByPlaceholder('Password').fill('secret_sauce');
+
+  await page.getByRole('button', { name: 'Login' }).click();
+
+  await expect(page.locator('[data-test="error"]')).toHaveText(
+    'Epic sadface: Sorry, this user has been locked out.'
+  );
+  });
+
+    test('Task - 5: should show validation error when login form is empty updated', async ({ page }) => {
       await page.getByRole('button', { name: 'Login' }).click();
 
       await expect(
@@ -122,7 +134,7 @@ test.describe('SauceDemo', () => {
       ).not.toHaveURL(/checkout-step-one/);
     });
 
-    test('Bonus Task - Multiple Products: should update cart badge after adding and removing multiple products', async ({ page }) => {
+    test('Bonus Task 1- Multiple Products: should update cart badge after adding and removing multiple products', async ({ page }) => {
       const backpackItem = page.locator('.inventory_item').filter({
         hasText: 'Sauce Labs Backpack',
       });
@@ -165,7 +177,7 @@ test.describe('SauceDemo', () => {
       ).toHaveText('Sauce Labs Onesie');
     });
 
-    test('Bonus Task - State After Refresh: should keep cart item after page refresh', async ({ page }) => {
+    test('Bonus Task 2 - State After Refresh: should keep cart item after page refresh', async ({ page }) => {
       const backpackItem = page.locator('.inventory_item').filter({
         hasText: 'Sauce Labs Backpack',
       });
@@ -186,3 +198,4 @@ test.describe('SauceDemo', () => {
     });
   });
 });
+
