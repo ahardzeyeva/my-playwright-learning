@@ -134,7 +134,7 @@ test.describe('SauceDemo', () => {
       ).not.toHaveURL(/checkout-step-one/);
     });
 
-    test('Bonus Task - Multiple Products: should update cart badge after adding and removing multiple products', async ({ page }) => {
+    test('Bonus Task 1- Multiple Products: should update cart badge after adding and removing multiple products', async ({ page }) => {
       const backpackItem = page.locator('.inventory_item').filter({
         hasText: 'Sauce Labs Backpack',
       });
@@ -177,7 +177,7 @@ test.describe('SauceDemo', () => {
       ).toHaveText('Sauce Labs Onesie');
     });
 
-    test('Bonus Task - State After Refresh: should keep cart item after page refresh', async ({ page }) => {
+    test('Bonus Task 2 - State After Refresh: should keep cart item after page refresh', async ({ page }) => {
       const backpackItem = page.locator('.inventory_item').filter({
         hasText: 'Sauce Labs Backpack',
       });
@@ -198,3 +198,4 @@ test.describe('SauceDemo', () => {
     });
   });
 });
+
