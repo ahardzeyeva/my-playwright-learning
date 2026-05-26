@@ -27,6 +27,18 @@ test.describe('SauceDemo', () => {
       ).toBeVisible();
     });
 
+    ///Week 5 - Scenario 1 
+    test('should show error for locked out user', async ({ page }) => {
+  await page.getByPlaceholder('Username').fill('locked_out_user');
+  await page.getByPlaceholder('Password').fill('secret_sauce');
+
+  await page.getByRole('button', { name: 'Login' }).click();
+
+  await expect(page.locator('[data-test="error"]')).toHaveText(
+    'Epic sadface: Sorry, this user has been locked out.'
+  );
+  });
+
     test('Task - 5: should show validation error when login form is empty', async ({ page }) => {
       await page.getByRole('button', { name: 'Login' }).click();
 
