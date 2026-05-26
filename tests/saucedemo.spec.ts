@@ -28,7 +28,7 @@ test.describe('SauceDemo', () => {
     });
 
     ///Week 5 - Scenario 1 
-    test.only('Task-3: should show error for locked out user', async ({ page }) => {
+    test('Task-3: should show error for locked out user', async ({ page }) => {
   await page.getByPlaceholder('Username').fill('locked_out_user');
   await page.getByPlaceholder('Password').fill('secret_sauce');
 
