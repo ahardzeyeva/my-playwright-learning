@@ -103,7 +103,7 @@ test.describe('SauceDemo', () => {
     //// npx playwright test tests/saucedemo.spec.ts --repeat-each=3
     /// Running 36 tests using 4 workers
     /// 36 passed (41.7s)
-
+   // Known application bug from previous practice. Skipped so the final project CI can run successfully.
     test.skip('Task - 7: Bug - should not allow checkout with an empty cart', async ({ page }) => {
       await page.locator('.shopping_cart_link').click();
 
